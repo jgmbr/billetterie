@@ -1,0 +1,153 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Contact
+{% endblock %}
+
+{% block body %} 
+
+  {% for message in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">Message flash : {{ message }}</div>
+  {% endfor %}
+
+    <div class="contact row col-md-12">  <h1> {{ 'site.contact.title'|trans }} </h1> <hr /> </div>
+
+    <div class="contact row col-md-12">
+
+        {{ form_start(form, {'attr': {'class': 'frmBooking form-horizontal'}}) }}
+
+        <div class="well">
+
+            {% if ( form.lastname.vars.errors|length > 0 ) or ( form.firstname.vars.errors|length > 0 ) or ( form.email.vars.errors|length > 0 ) or ( form.subject.vars.errors|length > 0 ) or ( form.message.vars.errors|length > 0 ) %}
+                <div class="alert alert-danger" role="alert">
+                    {{ form_errors(form.lastname) }}
+                    {{ form_errors(form.firstname) }}
+                    {{ form_errors(form.email) }}
+                    {{ form_errors(form.subject) }}
+                    {{ form_errors(form.message) }}
+                </div>
+            {% endif %}
+
+            <div class="form-group">
+                {{ form_label(form.lastname, "site.contact.lastname"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                <div class="input-group col-sm-10">
+                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                    <span class="input-group-addon">
+								<span class="fa fa-user"></span>
+							</span>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.firstname, "site.contact.firstname"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                <div class="input-group col-sm-10">
+                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                    <span class="input-group-addon">
+								<span class="fa fa-user"></span>
+							</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.email, "site.contact.email"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                <div class="input-group col-sm-10">
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    <span class="input-group-addon">
+								<span class="fa fa-envelope-o"></span>
+							</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.subject, "site.contact.subject"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                <div class="input-group col-sm-10">
+                    {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                    <span class="input-group-addon">
+								<span class="fa fa-question"></span>
+							</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.message, "site.contact.messsage"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                <div class="input-group col-sm-10">
+                    {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+                    <span class="input-group-addon">
+								<span class="fa fa-comments-o"></span>
+							</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.save, "", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            <div class="col-sm-12">
+                {{ form_widget(form.save, {'attr': {'class': 'flat-btn pull-right' }, 'label': "site.forms.valid"|trans}) }}
+            </div>
+        </div>
+
+        {{ form_rest(form) }}
+
+        {{ form_end(form) }}
+
+    </div>
+
+    <div class="contact row col-md-12"> <h1> {{ 'site.contact.access'|trans }} </h1> <hr /> </div>
+
+    <div class="contact row col-md-12">
+        <div class="line row col-sm-6 col-md-6">
+            <div class="row col-sm-6 col-md-2"> <span class="glyphicon glyphicon-map-marker"></span> </div>
+            <div class="row col-sm-6 col-md-10">
+                <p>{{ 'site.contents.contact.p1'|trans }}</p>
+                <p>{{ 'site.contents.contact.p2'|trans }} - {{ 'site.contents.contact.p3'|trans }}</p>
+                <p>{{ 'site.emails.confirmation.p4'|trans }}</p>
+            </div>
+        </div>
+        <div class="line row col-sm-6 col-md-6">
+            <div class="row col-sm-6 col-md-2"> <span class="glyphicon glyphicon-calendar"></span> </div>
+            <div class="row col-sm-6 col-md-10">
+                <p>{{ 'site.contents.contact.times'|trans }}</p>
+                <p>{{ 'site.contents.contact.closed'|trans }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-md-12"> <hr /> </div>
+
+    <div class="contact row col-md-12">
+        <div class="line row col-sm-6 col-md-6">
+            <div class="row col-sm-6 col-md-2"> <i class="fa fa-bus" aria-hidden="true"></i> </div>
+            <div class="row col-sm-6 col-md-10">
+                <p>{{ 'site.contents.contact.bus'|trans }}</p>
+            </div>
+        </div>
+        <div class="line row col-sm-6 col-md-6">
+            <div class="row col-sm-6 col-md-2"> <i class="fa fa-subway" aria-hidden="true"></i> </div>
+            <div class="row col-sm-6 col-md-10">
+                <p>{{ 'site.contents.contact.subway'|trans }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-md-12"> <hr /> </div>
+
+    <div class="contact row col-md-12">
+        <div class="line row col-sm-6 col-md-6">
+            <div class="row col-sm-6 col-md-2"> <i class="fa fa-car" aria-hidden="true"></i> </div>
+            <div class="row col-sm-6 col-md-10">
+                <p>{{ 'site.contents.contact.car'|trans }}</p>
+            </div>
+        </div>
+        <div class="line row col-sm-6 col-md-6">
+            <div class="row col-sm-6 col-md-2"> <i class="fa fa-ship" aria-hidden="true"></i> </div>
+            <div class="row col-sm-6 col-md-10">
+                <p>{{ 'site.contents.contact.ship'|trans }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-md-12"> <hr /> </div>
+
+{% endblock %}

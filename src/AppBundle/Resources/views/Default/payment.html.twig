@@ -1,0 +1,93 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Payment
+{% endblock %}
+
+{% block body %}
+
+    {# On affiche tous les messages flash dont le nom est « info » #}
+    {% for message in app.session.flashbag.get('info') %}
+        <div class="alert alert-info">Message flash : {{ message }}</div>
+    {% endfor %}
+
+    <div class="content row col-md-12">
+
+        {% include 'AppBundle:Default:steps.html.twig' with {'current': '4'} %}
+
+        <div class="table-responsive">
+            <table id="table_summary" class="table table-hover">
+                <thead>
+                <th> {{ 'site.summary.items.label'|trans }} </th>
+                <th class="text-center hidden-xs">  </th>
+                <th class="text-center hidden-xs">  </th>
+                <th class="text-center hidden-sm hidden-md hidden-lg">  </th>
+                <th class="text-center"> {{ 'site.summary.items.total'|trans }} </th>
+                </thead>
+                <tbody>
+                {% for ticket in listTickets %}
+                    <tr>
+                        <td>
+                            {{ 'site.summary.items.pricename'|trans }} {{ attribute(ticket.price, 'name'~app.request.attributes.get('_locale')) }} <br />
+                            {{ 'site.summary.items.people'|trans }} : {{ ticket.lastname }} {{ ticket.firstname }} <br />
+                            {{ 'site.summary.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} <br />
+                            {{ 'site.summary.items.tickettype'|trans }} : {{ attribute(currentBooking.ticketType, 'name'~app.request.attributes.get('_locale')) }}
+                        </td>
+                        <td class="text-center hidden-xs">   </td>
+                        <td class="text-center hidden-xs">  </td>
+                        <td class="text-center hidden-sm hidden-md hidden-lg">  </td>
+                        <td class="text-center"> {{ ticket.price.price|number_format_currency('EUR') }} </td>
+                    </tr>
+                {% endfor %}
+                <tr class="text-center">
+                    <td></td>
+                    <td class="hidden-xs"></td>
+                    <td class="hidden-xs hidden-sm hidden-md hidden-lg"></td>
+                    <td class="text-center"> </td>
+                    <td class="text-center"> {{ currentBooking.totalPrice|number_format_currency('EUR') }} </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pay_line well col-md-12">
+            <div class="col-md-10 text-left">
+                <span class="glyphicon glyphicon-credit-card" style="top:12px;"></span>
+                <span class="mode">  {{ 'site.payment.mode'|trans }} </span>
+            </div>
+            <div class="col-md-2">
+                <form action="" method="POST" class="pull-right payment">
+                    <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-panel-label="{{ 'site.summary.items.total'|trans }}"
+                            data-key="{{ stripe_public_key }}"
+                            data-amount="{{ currentBooking.totalPrice * 100 }}"
+                            data-name="{{ 'site.slogan'|trans }}"
+                            data-description=""
+                            data-image="{{ asset('img/louvre.png') }}"
+                            data-locale="auto"
+                            data-zip-code="false"
+                            data-currency="{% if (app.request.attributes.get('_locale') == 'fr') %}eur{% else %}usd{% endif %}">
+                    </script>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row col-md-12 text-center actions">
+        <a class="flat-btn" href="{{ path('homepage') }}"> Annuler ma commande </a>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            if($('.stripe-button-el').length > 0) {
+                $('.stripe-button-el').find('span').html('{{ 'site.buttons.pay'|trans }}');
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Credits
+{% endblock %}
+
+{% block body %}
+
+    {# On affiche tous les messages flash dont le nom est « info » #}
+    {% for message in app.session.flashbag.get('info') %}
+        <div class="alert alert-info">Message flash : {{ message }}</div>
+    {% endfor %}
+
+
+    <div class="page row col-md-12">
+
+        <h1> {{ 'site.menu.mentions'|trans }} </h1>
+
+        {{ 'site.contents.legales'|trans }}
+
+    </div>
+
+{% endblock %}

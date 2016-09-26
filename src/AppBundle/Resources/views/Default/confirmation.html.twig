@@ -1,0 +1,46 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Summary
+{% endblock %}
+
+{% block body %} 
+
+  {# On affiche tous les messages flash dont le nom est « info » #}
+  {% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info">Message flash : {{ message }}</div>
+  {% endfor %} 
+  
+	<div class="content row col-md-12">
+		 
+	{% include 'AppBundle:Default:steps.html.twig' with {'current': '5'} %}
+
+		<div class="well">
+
+		<p> {{ 'site.confirmation.items.code'|trans }} : {{ currentBooking.codeBooking }} </p>
+
+		<p> {{ 'site.confirmation.items.count'|trans }} : {{ currentBooking.totalQuantity }} </p>
+
+		<p> {{ 'site.confirmation.items.type'|trans }} : {{ attribute(currentBooking.ticketType, 'name'~app.request.attributes.get('_locale')) }} </p>
+		
+		<p> {{ 'site.confirmation.items.total'|trans }} : {{ currentBooking.totalPrice|number_format_currency('EUR') }} </p>
+		
+		<p> {{ 'site.confirmation.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} </p>
+		
+		<p> {{ 'site.confirmation.items.payment'|trans }} : {{ 'site.confirmation.items.card'|trans }} </p>
+
+		</div>
+
+		<hr />
+
+		<p> {{ 'site.confirmation.items.msg'|trans }} {{ currentBooking.email }} </p>
+
+		<hr />
+
+		<a class="flat-btn pull-left" href="{{ path('download_page', {'_locale': app.request.attributes.get('_locale'), 'codeBooking': currentBooking.codeBooking }) }}">
+			<span class="glyphicon glyphicon-download-alt"></span> {{ 'site.summary.items.download'|trans }}
+		</a>
+
+	</div>
+
+{% endblock %} 

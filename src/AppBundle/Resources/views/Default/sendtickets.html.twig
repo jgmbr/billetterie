@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ticket</title>
+	<link rel="stylesheet" href="{{ absolute_url(asset('dist/bootstrap.min.css')) }}">
+</head>
+<body>
+
+<div class="container-fluid">
+
+	<div class="row col-md-12 text-center">
+		<div class="col-md-12">
+			<img src="{{ absolute_url(asset('img/louvre.png')) }}" width="175" alt="Musée du Louvre" />
+		</div>
+	</div>
+
+	<div class="row col-md-12 ">
+		<p> {{ 'site.confirmation.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} </p>
+		<p> {{ 'site.confirmation.items.code'|trans }} : {{ currentBooking.codeBooking }} </p>
+		<p> {{ 'site.confirmation.items.count'|trans }} : {{ currentBooking.totalQuantity }} </p>
+		<p> {{ 'site.confirmation.items.type'|trans }} : {{ attribute(currentBooking.ticketType, 'name'~app.request.attributes.get('_locale')) }} </p>
+		<p> {{ 'site.confirmation.items.total'|trans }} : {{ currentBooking.totalPrice|number_format_currency('EUR') }} </p>
+		<p> {{ 'site.confirmation.items.payment'|trans }} : {{ 'site.confirmation.items.card'|trans }} </p>
+		{% for ticket in listTickets %}
+			<hr />
+			<div>
+				<p> Ticket n°{{ ticket.id }} </p>
+				<p>
+					{{ 'site.summary.items.pricename'|trans }} {{ attribute(ticket.price, 'name'~app.request.attributes.get('_locale')) }}
+					{% if ticket.price.code == "RED" %}
+						({{ attribute(ticket.price, 'infos'~app.request.attributes.get('_locale')) }})
+					{% endif %}
+					- {{ attribute(currentBooking.ticketType, 'name'~app.request.attributes.get('_locale')) }}
+					<br />
+					{{ 'site.summary.items.people'|trans }} : {{ ticket.lastname }} {{ ticket.firstname }} <br />
+					{{ 'site.confirmation.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} <br />
+					{{ 'site.summary.items.qty'|trans }} : 1 <br />
+				</p>
+				<p> {{ 'site.summary.items.total'|trans }} : {{ ticket.price.price|number_format_currency('EUR') }} </p>
+			</div>
+		{% endfor %}
+
+		<hr />
+
+		<p> {{ 'site.emails.confirmation.p2'|trans }} </p>
+		<br />
+		<p> {{ 'site.emails.confirmation.p3'|trans }} </p>
+		<p> {{ 'site.emails.confirmation.p4'|trans }} </p>
+	</div>
+
+</div> 
+
+<script src="{{ absolute_url(asset('dist/bootstrap.min.js')) }}"></script>
+<script src="{{ absolute_url(asset('dist/jquery.min.js')) }}"></script>
+
+</body>
+</html>

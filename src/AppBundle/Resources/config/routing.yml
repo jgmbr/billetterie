@@ -1,0 +1,5 @@
+# src/AppBundle/Resources/config/routing.yml
+
+#checkout_page:
+    #path:      /checkout
+    #defaults: { _controller: AppBundle:Default:checkout }

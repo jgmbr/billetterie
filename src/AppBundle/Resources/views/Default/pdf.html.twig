@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Ticket</title>
+		<link rel="stylesheet" href="{{ absolute_url(asset('dist/bootstrap.min.css')) }}">
+		<link rel="stylesheet" href="{{ absolute_url(asset('dist/tickets.css')) }}">
+	   <style>
+			.ticket {
+				background-image: url({{ absolute_url(asset('dist/bg-ticket.jpg')) }});
+				/*background-position: -250px -250px;*/
+				background-size: 100%;
+				background-repeat: no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row col-md-12 text-center">
+				<div class="col-md-12">
+					<img src="{{ absolute_url(asset('img/louvre.png')) }}" width="175" alt="Musée du Louvre" />
+				</div>
+				<div class="col-md-12">
+					<h1> {{ 'site.slogan'|trans }} <br /> {{ 'site.contents.contact.p2'|trans }} - {{ 'site.contents.contact.p3'|trans }} <br /> {{ 'site.emails.confirmation.p4'|trans }} </h1>
+				</div>
+			</div>
+			<div class="row col-md-12 tickets">
+				{% for ticket in listTickets %}
+					<div class="ticket">
+						<div class="col-xs-2 col-left">
+							<img src="{{ absolute_url(asset('dist/tickets.png')) }}" width="64" alt="tickets">
+						</div>
+						<div class="col-xs-10 col-right">
+							<h2> Ticket n°{{ ticket.id }}  </h2>
+							<h3> {{ 'site.summary.items.code'|trans }} : {{ currentBooking.codeBooking }} </h3>
+							<p class="details">
+								{{ 'site.summary.items.pricename'|trans }} {{ attribute(ticket.price, 'name'~app.request.attributes.get('_locale')) }}
+								{% if ticket.price.code == "RED" %}
+									({{ attribute(ticket.price, 'infos'~app.request.attributes.get('_locale')) }})
+								{% endif %}
+								- {{ attribute(currentBooking.ticketType, 'name'~app.request.attributes.get('_locale')) }}
+							</p>
+							<p class="details"> {{ 'site.summary.items.people'|trans }} : {{ ticket.lastname }} {{ ticket.firstname }} </p>
+							<p class="details"> {{ 'site.summary.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} </p>
+							<p class="details"> {{ 'site.summary.items.qty'|trans }} : 1 </p>
+							<p class="details price"> {{ 'site.summary.items.price'|trans }} : {{ ticket.price.price|number_format_currency('EUR') }} </p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<script src="{{ absolute_url(asset('dist/bootstrap.min.js')) }}"></script>
+		<script src="{{ absolute_url(asset('dist/jquery.min.js')) }}"></script>
+	</body>
+</html>

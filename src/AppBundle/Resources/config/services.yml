@@ -1,0 +1,37 @@
+services:
+    app_louvre.ticket.age:
+        class: AppBundle\Ticket\Age
+    app_louvre.booking.code:
+        class: AppBundle\Booking\Code
+        arguments: ['@doctrine.orm.entity_manager']
+    app_louvre.booking.token:
+        class: AppBundle\Booking\Token
+        arguments: ['@doctrine.orm.entity_manager']
+    app_louvre.ticket.price:
+        class: AppBundle\Ticket\Price
+        arguments: ['@doctrine.orm.entity_manager']
+    app_louvre.validator.notholidays:                         
+        class: AppBundle\Validator\NotHolidaysValidator
+        tags:
+            - { name: validator.constraint_validator, alias: app_louvre_notholidays }
+    app_louvre.validator.notuesday:
+        class: AppBundle\Validator\NotTuesdayValidator
+        tags:
+            - { name: validator.constraint_validator, alias: app_louvre_nottuesday }
+    app_louvre.validator.notsunday:
+        class: AppBundle\Validator\NotSundayValidator
+        tags:
+            - { name: validator.constraint_validator, alias: app_louvre_notsunday }
+    app_louvre.validator.notpreviousday:                         
+        class: AppBundle\Validator\NotPreviousDayValidator
+        tags:
+            - { name: validator.constraint_validator, alias: app_louvre_notpreviousday }
+    app_louvre.validator.notafterhours:                         
+        class: AppBundle\Validator\NotAfterHoursValidator
+        tags:
+            - { name: validator.constraint_validator, alias: app_louvre_notafterhours }
+    app_louvre.validator.notmorethousand:                         
+        class: AppBundle\Validator\NotMoreThousandValidator
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: validator.constraint_validator, alias: app_louvre_notmorethousand }

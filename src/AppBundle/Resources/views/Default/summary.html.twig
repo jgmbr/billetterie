@@ -1,0 +1,65 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Summary
+{% endblock %}
+
+{% block body %} 
+
+  {# On affiche tous les messages flash dont le nom est « info » #}
+  {% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info">Message flash : {{ message }}</div>
+  {% endfor %} 
+  
+	<div class="content row col-md-12">
+		 
+		{% include 'AppBundle:Default:steps.html.twig' with {'current': '3'} %}
+ 
+		<div class="table-responsive">		
+			<table id="table_summary" class="table table-hover">
+				<thead>
+					<th> {{ 'site.summary.items.label'|trans }} </th>
+					<th class="text-center hidden-xs"> {{ 'site.summary.items.price'|trans }} </th>
+					<th class="text-center hidden-xs"> {{ 'site.summary.items.qty'|trans }} </th>
+					<th class="text-center hidden-sm hidden-md hidden-lg"> {{ 'site.summary.items.qtyshort'|trans }} </th>
+					<th class="text-center"> {{ 'site.summary.items.total'|trans }} </th>
+				</thead>
+				<tbody>
+					{% for ticket in listTickets %}
+					<tr>
+						<td>
+							{{ 'site.summary.items.pricename'|trans }} {{ attribute(ticket.price, 'name'~app.request.attributes.get('_locale')) }} <br />
+							{{ 'site.summary.items.people'|trans }} : {{ ticket.lastname }} {{ ticket.firstname }} <br />
+							{{ 'site.summary.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} <br />
+							{{ 'site.summary.items.tickettype'|trans }} : {{ attribute(currentBooking.ticketType, 'name'~app.request.attributes.get('_locale')) }}
+						</td>
+						<td class="text-center hidden-xs"> {{ ticket.price.price|number_format_currency('EUR') }} </td>
+						<td class="text-center hidden-xs"> 1 </td>
+						<td class="text-center hidden-sm hidden-md hidden-lg"> 1 </td>
+						<td class="text-center"> {{ ticket.price.price|number_format_currency('EUR') }} </td>
+					</tr>
+					{% endfor %}
+					<tr class="text-center">
+						<td></td>
+						<td class="hidden-xs"></td>
+						<td class="hidden-xs hidden-sm hidden-md hidden-lg"></td>
+						<td class="text-center"> <strong> {{ 'site.summary.items.total'|trans }} </strong> </td>
+						<td class="text-center"> {{ currentBooking.totalPrice|number_format_currency('EUR') }} </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<hr />
+
+
+		<a class="flat-btn pull-right" href="{{ path('payment_page', {'_locale': app.request.attributes.get('_locale'), 'codeBooking': currentBooking.codeBooking }) }}">
+			{{ 'site.summary.items.payment'|trans }}</a>
+
+	</div>
+
+	<div class="row col-md-12 text-center actions">
+		<a class="flat-btn" href="{{ path('homepage') }}"> Annuler ma commande </a>
+	</div>
+
+{% endblock %} 

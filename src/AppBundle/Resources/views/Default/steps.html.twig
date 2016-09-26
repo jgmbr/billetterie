@@ -1,0 +1,22 @@
+<ul class="step col-md-12" id="order_step">
+	<li class="col-xs-2 col-sm-2 col-md-2 col-md-offset-1 step_checkout {% if current == 1 %}step_current{% endif %}">
+		<span class="picto"><span class="glyphicon glyphicon-calendar"></span></span>
+		<span class="hidden-xs item">{{ 'site.steps.step1'|trans }}</span>
+	</li>
+	<li class="col-xs-2 col-sm-2 col-md-2 step_informations {% if current == 2 %}step_current{% endif %}">
+		<span class="picto"><span class="glyphicon glyphicon-user"></span></span>
+		<span class="hidden-xs item">{{ 'site.steps.step2'|trans }}</span>
+	</li>
+	<li class="col-xs-2 col-sm-2 col-md-2 step_summary {% if current == 3 %}step_current{% endif %}">
+		<span class="picto"><span class="glyphicon glyphicon-th-list"></span></span>
+		<span class="hidden-xs item">{{ 'site.steps.step3'|trans }}</span>
+	</li>
+	<li class="col-xs-2 col-sm-2 col-md-2 step_payment {% if current == 4 %}step_current{% endif %}">
+		<span class="picto"><span class="glyphicon glyphicon-credit-card"></span></span>
+		<span class="hidden-xs item">{{ 'site.steps.step4'|trans }}</span>
+	</li>
+	<li class="col-xs-2 col-sm-2 col-md-2 step_thanks {% if current == 5 %}step_current{% endif %}">
+		<span class="picto"><span class="glyphicon glyphicon-thumbs-up"></span></span>
+		<span class="hidden-xs item">{{ 'site.steps.step5'|trans }}</span>
+	</li>
+</ul>

@@ -1,0 +1,15 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Success
+{% endblock %}
+
+{% block body %}
+
+	<div class="content row col-md-12">
+	  
+		<p> {{ 'site.errors.sendtickets.success'|trans }} : {{ email }} </p>
+		 
+    </div>
+
+{% endblock %}

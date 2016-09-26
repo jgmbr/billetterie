@@ -1,0 +1,121 @@
+site:
+    slogan: Louvre Museum
+    pages:
+        contact: Contact
+    data:
+        free: Free
+        price: Price
+    liens:
+        accueil: Home
+    titres:
+        step1: Step Order
+        step2: Step Informations
+    buttons:
+        order: Order
+        pay: Payment
+    menu:
+        order: Ticketing
+        contact: Contact
+        prices: Prices
+        credits: Credits
+        mentions: Legal notices
+    langues:
+        fr: French
+        en: English
+    forms:
+        bookingday: Booking day
+        quantity: Quantity tickets
+        email: Email
+        tickettype: Type of tickets
+        people: People
+        lastname: Lastname
+        firstname: Firstname
+        country: Country
+        birthday: Birthday
+        reduction: Reduction
+        infos:  "Reduction : on presentation of a student card, military or equivalent at the Museum admission"
+        valid: Valid
+        cancel: Cancel
+        infostt: "Reservation \"Day\" as possible before 14:00"
+    contact:
+        lastname: Lastname
+        firstname: Firstname
+        email: Email
+        subject: Subject
+        messsage: Message
+        title: Contact-us
+        access: Access
+    steps:
+        step1: Booking
+        step2: Beneficiary
+        step3: Summary
+        step4: Payment
+        step5: Confirmation
+    payment:
+        title: Choose your payment method
+        mode: Payment Credit Card
+    summary:
+        items:
+            payment: Payment
+            people: Beneficiary
+            label: Product
+            email: Email
+            code: Booking Code
+            pricename: Price
+            qty: Quantity
+            qtyshort: Qty
+            price: Cost
+            date: Date of visit
+            tickettype: Ticket type
+            total: Total
+            download: Download my tickets
+            sendtickets: Send my tickets by email
+    confirmation:
+        items:
+            titre: Order confirmation
+            code: Booking Code
+            count: Tickets
+            total: Total Order
+            date: Date of visit
+            payment: Payment
+            type: Type of tickets
+            msg: "Tickets were sent electronically to the following address"
+            card: Bank card
+    errors:
+        sendtickets:
+            error: "Error sending the message to the following address"
+            success: "Message successfully sent to the following address"			
+    contents:
+        contact:
+            p1: >
+                Louvre Museum
+            p2: >
+                75058 Paris
+            p3: >
+                France
+            times: >
+                Open daily from 9am to 18pm except Tuesdays and Sundays
+            closed: >
+                Closures 1 May, 1 November and 25 December
+            bus: >
+                Bus n° 21,24,27,39,48,68,69,72,81,95
+            subway: >
+                Métro ligne 1 station Palais-Royal/Louvre Museum
+            car: >
+                Avenue du General Lemonnier, every day from 7:00 to 23:00
+            ship: >
+                Louvre Museum stop, quai François Mitterrand
+        credits: >
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex mi, sodales vitae risus sit amet, vestibulum vestibulum nunc. Vivamus pharetra dolor quis sapien auctor scelerisque et eu quam. Ut eu felis quis neque dictum vulputate. Aenean pulvinar placerat finibus. Etiam id est accumsan, sagittis nisl id, sollicitudin arcu. Vestibulum ornare leo mollis, pharetra lorem at, vulputate lectus. Sed efficitur, tortor a iaculis placerat, ante dolor gravida urna, a convallis purus neque id turpis. Sed imperdiet odio et tortor bibendum faucibus. Pellentesque quam elit, pellentesque sed blandit at, pulvinar in purus. Maecenas pharetra magna ac tincidunt venenatis.
+        legales: >
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex mi, sodales vitae risus sit amet, vestibulum vestibulum nunc. Vivamus pharetra dolor quis sapien auctor scelerisque et eu quam. Ut eu felis quis neque dictum vulputate. Aenean pulvinar placerat finibus. Etiam id est accumsan, sagittis nisl id, sollicitudin arcu. Vestibulum ornare leo mollis, pharetra lorem at, vulputate lectus. Sed efficitur, tortor a iaculis placerat, ante dolor gravida urna, a convallis purus neque id turpis. Sed imperdiet odio et tortor bibendum faucibus. Pellentesque quam elit, pellentesque sed blandit at, pulvinar in purus. Maecenas pharetra magna ac tincidunt venenatis.
+    emails:
+        confirmation:
+            p1: >
+                The Louvre thank you for the attention brought to our institution.
+            p2: >
+                You will find enclosed the entrance tickets to the Museum the necessary electronic access to the Museum.
+            p3: >
+                Louvre Museum, 75058 Paris - France
+            p4: >
+                + 33 (0)1 40 20 53 17

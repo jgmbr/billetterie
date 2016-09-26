@@ -1,0 +1,121 @@
+site:
+    slogan: Musée du Louvre
+    pages:
+        contact: Contact
+    data:
+        free: Gratuit
+        price: Tarif
+    liens:
+        accueil: Accueil
+    titres:
+        step1: Etape Commande
+        step2: Etape Informations
+    buttons:
+        order: Commander
+        pay: Paiement
+    menu:
+        order: Billetterie
+        contact: Contact
+        prices: Tarifs
+        credits: Crédits
+        mentions: Mentions légales
+    langues:
+        fr: Français
+        en: Anglais
+    forms:
+        bookingday: Date de réservation
+        quantity: Quantité de billets
+        email: Email
+        tickettype: Type de billets
+        people: Personne
+        lastname: Nom
+        firstname: Prénom
+        country: Pays
+        birthday: Date de naissance
+        reduction: Réduction
+        infos:  "Réduction : Sur présentation de la carte d’étudiant, militaire ou équivalent lors de l'entrée au Musée"
+        valid: Valider
+        cancel: Annuler
+        infostt: "Réservation \"Journée\" possible avant 14h00"
+    contact:
+        lastname: Nom
+        firstname: Prénom
+        email: Email
+        subject: Sujet
+        messsage: Message
+        title: Contactez-nous
+        access: Accès
+    steps:
+        step1: Réservation
+        step2: Bénéficiaires
+        step3: Résumé
+        step4: Paiement
+        step5: Confirmation
+    payment:
+        title: Choisissez votre mode de paiement
+        mode: Paiement Carte Bancaire
+    summary:
+        items:
+            payment: Paiement
+            people: Bénéficiaire
+            label: Produit
+            email: Email
+            code: Code de réservation
+            pricename: Tarif
+            qty: Quantité
+            qtyshort: Qté
+            price: Prix
+            date: Date de la visite
+            tickettype: Type de billet
+            total: Total
+            download: Télécharger mes billets
+            sendtickets: Envoyer mes billets par email
+    confirmation:
+        items:
+            titre: Confirmation de commande
+            code: Code de réservation
+            count: Nombre de billets
+            total: Total de la commande
+            date: Date de réservation
+            payment: Moyen de paiement
+            type: Type de billets
+            msg: "Les billets ont été envoyés au format électronique à l'adresse suivante"
+            card: Carte bancaire
+    errors:
+        sendtickets:
+            error: "Erreur lors de l'envoi du message à l'adresse suivante"
+            success: "Message envoyé avec succès à l'adresse suivante"
+    contents:
+        contact:
+            p1: >
+                Musée du Louvre
+            p2: >
+                75058 Paris
+            p3: >
+                France
+            times: >
+                Ouvert tous les jours de 9h à 18h sauf les mardis et dimanches
+            closed: >
+                Fermetures les 1er mai, 1er novembre et 25 décembre
+            bus: >
+                Bus n° 21,24,27,39,48,68,69,72,81,95
+            subway: >
+                Métro ligne 1 station Palais-Royal/Musée du Louvre
+            car: >
+                Avenue du général Lemonier, tous les jours de 7h00 à 23h00
+            ship: >
+                Escale Louvre, quai François Mitterrand
+        credits: >
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex mi, sodales vitae risus sit amet, vestibulum vestibulum nunc. Vivamus pharetra dolor quis sapien auctor scelerisque et eu quam. Ut eu felis quis neque dictum vulputate. Aenean pulvinar placerat finibus. Etiam id est accumsan, sagittis nisl id, sollicitudin arcu. Vestibulum ornare leo mollis, pharetra lorem at, vulputate lectus. Sed efficitur, tortor a iaculis placerat, ante dolor gravida urna, a convallis purus neque id turpis. Sed imperdiet odio et tortor bibendum faucibus. Pellentesque quam elit, pellentesque sed blandit at, pulvinar in purus. Maecenas pharetra magna ac tincidunt venenatis.
+        legales: >
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex mi, sodales vitae risus sit amet, vestibulum vestibulum nunc. Vivamus pharetra dolor quis sapien auctor scelerisque et eu quam. Ut eu felis quis neque dictum vulputate. Aenean pulvinar placerat finibus. Etiam id est accumsan, sagittis nisl id, sollicitudin arcu. Vestibulum ornare leo mollis, pharetra lorem at, vulputate lectus. Sed efficitur, tortor a iaculis placerat, ante dolor gravida urna, a convallis purus neque id turpis. Sed imperdiet odio et tortor bibendum faucibus. Pellentesque quam elit, pellentesque sed blandit at, pulvinar in purus. Maecenas pharetra magna ac tincidunt venenatis.
+    emails:
+        confirmation:
+            p1: >
+                Le Musée du Louvre vous remercie pour l'attention porté à notre établissement.
+            p2: >
+                Vous trouverez ci-joints les billets d'entrées au Musée au format électronique nécessaires pour accéder au Musée.
+            p3: >
+                Musée du Louvre, 75058 Paris - France
+            p4: >
+                + 33 (0)1 40 20 53 17
