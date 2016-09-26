@@ -1,0 +1,46 @@
+body {
+
+}
+
+h1 {
+	font-size: 1.5em;
+	line-height: 1.5em;
+	margin: 0;
+}
+
+.tickets {
+	margin: 35px 0 0 0;
+}
+
+.ticket {
+	border: 2px solid grey;
+	margin:	0 0 20px 0;
+	overflow: hidden;
+	line-height: 20px;
+	height: 300px;
+}
+
+.col-left {
+	text-align: center;
+	height: 300px;
+}
+
+.col-left img {
+	margin: 115px 0;
+}
+
+.col-right {
+	border-left: 2px dotted grey;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	height: 300px;
+}
+
+.details {
+	font-size: 1.2em;
+}
+
+.price {
+	font-weight: bold;
+	font-size: 1.5em;
+}
