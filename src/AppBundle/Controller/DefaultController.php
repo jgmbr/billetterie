@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Contact;
 use AppBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
