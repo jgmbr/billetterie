@@ -23,6 +23,13 @@ h1, h2, h3, h4, h5, h6 {
     background: #ff6347;
 }
 
+.navbar-default .navbar-nav li:hover,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: #ff6347;
+}
+
 hr {
     clear: both;
 }
