@@ -3,3 +3,8 @@
 #checkout_page:
     #path:      /checkout
     #defaults: { _controller: AppBundle:Default:checkout }
+#informations_page:
+#    path: /informations/{codeBooking}
+#    defaults:  { _controller: AppBundle:Default:informations }
+#    requirements:
+#        codeBooking: BC\-[a-zA-Z0-9]+

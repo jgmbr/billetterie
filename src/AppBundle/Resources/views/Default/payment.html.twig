@@ -87,6 +87,7 @@
         $(document).ready(function(){
             if($('.stripe-button-el').length > 0) {
                 $('.stripe-button-el').find('span').html('{{ 'site.buttons.pay'|trans }}');
+                $('.stripe-button-el').attr('id','btnPayment');
             }
         });
     </script>
