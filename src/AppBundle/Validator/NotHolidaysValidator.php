@@ -27,9 +27,8 @@ class NotHolidaysValidator extends ConstraintValidator
 	}
 
     public function validate($value, Constraint $constraint)
-    {  
-        $holidays = $this->getHolidays(intval($value->format('Y')));
-        $holiday = [];
+    {
+        $holidays = $this->getHolidays((int)$value->format('Y'));
 
         if (!$value instanceof \DateTime){
             $value = new \DateTime($value);
