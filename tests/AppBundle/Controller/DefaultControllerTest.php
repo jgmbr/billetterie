@@ -90,6 +90,8 @@ class DefaultControllerTest extends WebTestCase
             ),
             $form->getPhpFiles()
         );
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
     public function testInformations()
