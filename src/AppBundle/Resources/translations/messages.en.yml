@@ -123,7 +123,7 @@ site:
              Etiam id est accumsan, sagittis nisl id, sollicitudin arcu. Vestibulum ornare leo mollis, pharetra lorem at, vulputate lectus.
              Sed efficitur, tortor a iaculis placerat, ante dolor gravida urna, a convallis purus neque id turpis. Sed imperdiet odio et tortor bibendum faucibus.
              ZPellentesque quam elit, pellentesque sed blandit at, pulvinar in purus. Maecenas pharetra magna ac tincidunt venenatis.
-        legales: >
+        legales: |
              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex mi, sodales vitae risus sit amet, vestibulum vestibulum nunc.
              Vivamus pharetra dolor quis sapien auctor scelerisque et eu quam. Ut eu felis quis neque dictum vulputate. Aenean pulvinar placerat finibus.
              Etiam id est accumsan, sagittis nisl id, sollicitudin arcu. Vestibulum ornare leo mollis, pharetra lorem at, vulputate lectus.
