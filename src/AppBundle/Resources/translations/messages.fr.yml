@@ -36,6 +36,7 @@ site:
         infos:  "Réduction : Sur présentation de la carte d’étudiant, militaire ou équivalent lors de l'entrée au Musée"
         valid: Valider
         cancel: Annuler
+        cancelorder: Annuler ma commande
         infostt: "Réservation \"Journée\" possible avant 14h00"
     contact:
         lastname: Nom

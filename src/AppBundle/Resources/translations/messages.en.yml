@@ -36,6 +36,7 @@ site:
         infos:  "Reduction : on presentation of a student card, military or equivalent at the Museum admission"
         valid: Valid
         cancel: Cancel
+        cancelorder: Cancel my order
         infostt: "Reservation \"Day\" as possible before 14:00"
     contact:
         lastname: Lastname

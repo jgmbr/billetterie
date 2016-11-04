@@ -2,19 +2,16 @@
 
 namespace AppBundle\Entity;
 
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; 
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use AppBundle\Validator\NotHolidays;
-use AppBundle\Validator\NotTuesday;
-use AppBundle\Validator\NotPreviousDay;
-use AppBundle\Validator\NotAfterHours;
-use AppBundle\Validator\NotMoreThousand;
-use AppBundle\Validator\NotSunday;
+use AppBundle\Validators\Booking\NotHolidays;
+use AppBundle\Validators\Booking\NotTuesday;
+use AppBundle\Validators\Booking\NotPreviousDay;
+use AppBundle\Validators\Booking\NotAfterHours;
+use AppBundle\Validators\Booking\NotMoreThousand;
+use AppBundle\Validators\Booking\NotSunday;
 
 /**
  * Booking
