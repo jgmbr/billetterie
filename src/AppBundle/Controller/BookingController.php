@@ -54,6 +54,16 @@ class BookingController extends Controller
         return $serviceNotificationMailer->sendEmail($datas);
     }
 
+    protected function setTotalPrices($currentBooking)
+    {
+        if (!$currentBooking)
+            return false;
+
+        $servicePrices = $this->get('app_louvre.booking.prices');
+
+        return $servicePrices->setTotalPrices($currentBooking);
+    }
+
     /**
      * @Route("/checkout", name="checkout_page")
      */
@@ -101,30 +111,8 @@ class BookingController extends Controller
         ));
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-
-            $total = 0;
-
-            foreach($currentBooking->getTickets() as $ticket)
-            {
-                $condition = "age";
-                if($ticket->getReduction())
-                    $condition = "reduction";
-
-                $objPrice = $this->getPrice($this->getAge($ticket->getBirthday()), $condition);
-
-                $total += $objPrice->getPrice();
-
-                $ticket->setPrice($objPrice);
-
-                $ticket->setBooking($currentBooking);
-
-                $entityManager->persist($ticket);
-            }
-
-            $currentBooking->setTotalPrice((float)$total);
-
+            $currentBooking = $this->setTotalPrices($currentBooking);
             $entityManager->flush();
-
             return $this->redirectToRoute('summary_page', array(
                 'codeBooking' => $currentBooking->getCodeBooking()
             ));

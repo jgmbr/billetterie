@@ -10,6 +10,9 @@ services:
     app_louvre.ticket.price:
         class: AppBundle\Services\Ticket\Price
         arguments: ['@doctrine.orm.entity_manager']
+    app_louvre.booking.prices:
+        class: AppBundle\Services\Booking\Prices
+        arguments: ['@doctrine.orm.entity_manager','@app_louvre.ticket.price','@app_louvre.ticket.age']
     app_louvre.validator.notholidays:                         
         class: AppBundle\Validators\Booking\NotHolidaysValidator
         tags:
