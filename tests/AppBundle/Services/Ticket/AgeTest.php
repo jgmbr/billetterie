@@ -2,7 +2,7 @@
 
 namespace Tests\AppBundle\Ticket;
 
-use AppBundle\Ticket\Age;
+use AppBundle\Services\Ticket\Age;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AgeTest extends WebTestCase

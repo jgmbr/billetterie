@@ -2,10 +2,7 @@
 
 namespace Tests\AppBundle\Ticket;
 
-use AppBundle\Ticket\Price;
-use Doctrine\ORM\EntityRepository;
-use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use AppBundle\Services\Ticket\Price;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class PriceTest extends WebTestCase

@@ -2,10 +2,10 @@
 
 namespace Tests\AppBundle\Controller;
 
-use AppBundle\Booking\Code;
+use AppBundle\Services\Booking\Code;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class BookingControllerTest extends WebTestCase
 {
     protected $client;
     protected $crawler;
@@ -26,20 +26,7 @@ class DefaultControllerTest extends WebTestCase
         $this->code = "BC-3KEQZS0K8O";
     }
 
-    public function testIndex()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/fr/');
-
-        $this->assertTrue($client->getResponse()->isSuccessful());
-
-        $this->assertContains('2016 - Musée du Louvre', $client->getResponse()->getContent());
-
-        $this->assertCount(1, $crawler->filter('h1'));
-    }
-
-    public function testCancel()
+   /* public function testCancel()
     {
         $client = static::createClient();
 
@@ -54,7 +41,7 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertTrue($client->getResponse()->isSuccessful());
 
-    }
+    }*/
 
     public function testCheckout()
     {

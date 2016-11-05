@@ -2,10 +2,7 @@
 
 namespace Tests\AppBundle\Booking;
 
-use AppBundle\Booking\Code;
-use Doctrine\ORM\EntityRepository;
-use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use AppBundle\Services\Booking\Code;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class CodeTest extends WebTestCase
