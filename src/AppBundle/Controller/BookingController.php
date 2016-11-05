@@ -44,6 +44,16 @@ class BookingController extends Controller
         return "usd";
     }
 
+    protected function setNewMailer($datas)
+    {
+        if (!$datas)
+            return false;
+
+        $serviceNotificationMailer = $this->get('app_louvre.mailer');
+
+        return $serviceNotificationMailer->sendEmail($datas);
+    }
+
     /**
      * @Route("/checkout", name="checkout_page")
      */
@@ -193,25 +203,19 @@ class BookingController extends Controller
                 $this->getParameter('path_pdf').$token."-".$currentBooking->getCodeBooking().".pdf"
             );
 
-            $message = \Swift_Message::newInstance()
-                ->setSubject('Musée du Louvre › Confirmation de commande')
-                ->setFrom('example@gmail.com')
-                ->setTo($currentBooking->getEmail())
-                ->setBody(
-                    $this->renderView(
-                        'AppBundle:Ticket:sendtickets.html.twig',
-                        array('codeBooking' => $currentBooking->getCodeBooking(),'listTickets' => $listTickets,'currentBooking' => $currentBooking)
-                    ),
-                    'text/html'
-                );
+            $responseMailer = $this->setNewMailer(
+                array(
+                    'subject'       => 'Musée du Louvre › Confirmation de commande',
+                    'from'          => $this->getParameter('from_mailer'),
+                    'to'            => $currentBooking->getEmail(),
+                    'template'      => 'AppBundle:Ticket:sendtickets.html.twig',
+                    'content'       => array('codeBooking' => $currentBooking->getCodeBooking(),'listTickets' => $listTickets,'currentBooking' => $currentBooking),
+                    'image'         => '../web/img/louvre.png',
+                    'attachment'    => $this->getParameter('path_pdf').$token.'-'.$currentBooking->getCodeBooking().'.pdf'
+                )
+            );
 
-            $message->embed(\Swift_Image::fromPath('../web/img/louvre.png'));
-
-            $message->attach(\Swift_Attachment::fromPath($this->getParameter('path_pdf').$token.'-'.$currentBooking->getCodeBooking().'.pdf'));
-
-            $this->get('mailer')->send($message);
-
-            if ($this->get('mailer')->send($message)) {
+            if ($responseMailer) {
                 $currentBooking->setState(true);
                 $entityManager->persist($currentBooking);
                 $entityManager->flush();
