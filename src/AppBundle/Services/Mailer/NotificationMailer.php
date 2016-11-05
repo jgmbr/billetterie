@@ -2,12 +2,11 @@
 
 namespace AppBundle\Services\Mailer;
 
-use AppBundle\Entity\Booking;
 use Symfony\Component\Templating\EngineInterface;
 
 class NotificationMailer
 {
-  private $mailer;
+    private $mailer;
 
     private $templating;
 
