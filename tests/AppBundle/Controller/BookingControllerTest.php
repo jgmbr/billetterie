@@ -26,7 +26,7 @@ class BookingControllerTest extends WebTestCase
         $this->code = "BC-3KEQZS0K8O";
     }
 
-   /* public function testCancel()
+    public function testCancel()
     {
         $client = static::createClient();
 
@@ -41,7 +41,7 @@ class BookingControllerTest extends WebTestCase
 
         $this->assertTrue($client->getResponse()->isSuccessful());
 
-    }*/
+    }
 
     public function testCheckout()
     {
