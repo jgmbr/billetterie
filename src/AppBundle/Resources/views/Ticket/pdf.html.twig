@@ -44,7 +44,7 @@
 							<p class="details"> {{ 'site.summary.items.people'|trans }} : {{ ticket.lastname }} {{ ticket.firstname }} </p>
 							<p class="details"> {{ 'site.summary.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} </p>
 							<p class="details"> {{ 'site.summary.items.qty'|trans }} : 1 </p>
-							<p class="details price"> {{ 'site.summary.items.price'|trans }} : {{ ticket.price.price|number_format_currency('EUR') }} </p>
+							<p class="details price"> {{ 'site.summary.items.price'|trans }} : {{ (ticket.price.price * currentBooking.ticketType.impact)|number_format_currency('EUR') }} </p>
 						</div>
 					</div>
 				{% endfor %}

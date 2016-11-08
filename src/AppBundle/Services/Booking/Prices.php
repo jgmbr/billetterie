@@ -36,7 +36,9 @@ class Prices
 
             $objPrice = $this->servicePrice->getPrice($this->serviceAge->getAge($ticket->getBirthday()), $condition);
 
-            $this->total += $objPrice->getPrice();
+            $price = $objPrice->getPrice() * $currentBooking->getTicketType()->getImpact();
+
+            $this->total += $price;
 
             $ticket->setPrice($objPrice);
 

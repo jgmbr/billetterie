@@ -36,7 +36,7 @@
                         <td class="text-center hidden-xs">   </td>
                         <td class="text-center hidden-xs">  </td>
                         <td class="text-center hidden-sm hidden-md hidden-lg">  </td>
-                        <td class="text-center"> {{ ticket.price.price|number_format_currency('EUR') }} </td>
+                        <td class="text-center"> {{ (ticket.price.price * currentBooking.ticketType.impact)|number_format_currency('EUR') }} </td>
                     </tr>
                 {% endfor %}
                 <tr class="text-center">

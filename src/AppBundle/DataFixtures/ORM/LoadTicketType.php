@@ -14,7 +14,7 @@ class LoadTicketType implements FixtureInterface
 		$ticketType1 = new TicketType();
 		$ticketType1->setNameFr('Journée');
 		$ticketType1->setNameEn('Day');
-		$ticketType1->setImpact(0);
+		$ticketType1->setImpact(1);
 		$ticketType1->setConditions('< 02:00 pm');
 		$manager->persist($ticketType1);
 		

@@ -33,10 +33,10 @@
 							{{ 'site.summary.items.date'|trans }} : {{ currentBooking.dateBooking|date("d/m/Y") }} <br />
 							{{ 'site.summary.items.tickettype'|trans }} : {{ attribute(currentBooking.ticketType, 'name'~app.request.attributes.get('_locale')) }}
 						</td>
-						<td class="text-center hidden-xs"> {{ ticket.price.price|number_format_currency('EUR') }} </td>
+						<td class="text-center hidden-xs"> {{ (ticket.price.price * currentBooking.ticketType.impact)|number_format_currency('EUR') }} </td>
 						<td class="text-center hidden-xs"> 1 </td>
 						<td class="text-center hidden-sm hidden-md hidden-lg"> 1 </td>
-						<td class="text-center"> {{ ticket.price.price|number_format_currency('EUR') }} </td>
+						<td class="text-center"> {{ (ticket.price.price * currentBooking.ticketType.impact)|number_format_currency('EUR') }} </td>
 					</tr>
 					{% endfor %}
 					<tr class="text-center">
