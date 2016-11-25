@@ -164,7 +164,7 @@ class BookingController extends Controller
                 // Since it's a decline, \Stripe\Error\Card will be caught
                 $body = $e->getJsonBody();
                 $err  = $body['error'];
-                $request->getSession()->getFlashBag()->add('success', $err['message']);
+                $request->getSession()->getFlashBag()->add('info', $err['message']);
                 return $this->render('AppBundle:Booking:payment.html.twig', array(
                     'listTickets' => $listTickets,
                     'currentBooking' => $currentBooking,
@@ -172,7 +172,7 @@ class BookingController extends Controller
                 ));
             } catch (\Stripe\Error\RateLimit $e) {
                 // Too many requests made to the API too quickly
-                $request->getSession()->getFlashBag()->add('success', 'Echec de la requête');
+                $request->getSession()->getFlashBag()->add('info', 'Echec de la requête');
                 return $this->render('AppBundle:Booking:payment.html.twig', array(
                     'listTickets' => $listTickets,
                     'currentBooking' => $currentBooking,
@@ -180,7 +180,7 @@ class BookingController extends Controller
                 ));
             } catch (\Stripe\Error\InvalidRequest $e) {
                 // Invalid parameters were supplied to Stripe's API
-                $request->getSession()->getFlashBag()->add('success', 'Requête invalide');
+                $request->getSession()->getFlashBag()->add('info', 'Requête invalide');
                 return $this->render('AppBundle:Booking:payment.html.twig', array(
                     'listTickets' => $listTickets,
                     'currentBooking' => $currentBooking,
@@ -189,7 +189,7 @@ class BookingController extends Controller
             } catch (\Stripe\Error\Authentication $e) {
                 // Authentication with Stripe's API failed
                 // (maybe you changed API keys recently)
-                $request->getSession()->getFlashBag()->add('success', 'Echec d\'authentification');
+                $request->getSession()->getFlashBag()->add('info', 'Echec d\'authentification');
                 return $this->render('AppBundle:Booking:payment.html.twig', array(
                     'listTickets' => $listTickets,
                     'currentBooking' => $currentBooking,
@@ -197,7 +197,7 @@ class BookingController extends Controller
                 ));
             } catch (\Stripe\Error\ApiConnection $e) {
                 // Network communication with Stripe failed
-                $request->getSession()->getFlashBag()->add('success', 'Echec de la connexion à l\'API Stripe');
+                $request->getSession()->getFlashBag()->add('info', 'Echec de la connexion à l\'API Stripe');
                 return $this->render('AppBundle:Booking:payment.html.twig', array(
                     'listTickets' => $listTickets,
                     'currentBooking' => $currentBooking,
@@ -206,7 +206,7 @@ class BookingController extends Controller
             } catch (\Stripe\Error\Base $e) {
                 // Display a very generic error to the user, and maybe send
                 // yourself an email
-                $request->getSession()->getFlashBag()->add('success', 'Une erreur s\'est produite');
+                $request->getSession()->getFlashBag()->add('info', 'Une erreur s\'est produite');
                 return $this->render('AppBundle:Booking:payment.html.twig', array(
                     'listTickets' => $listTickets,
                     'currentBooking' => $currentBooking,
@@ -214,7 +214,7 @@ class BookingController extends Controller
                 ));
             } catch (Exception $e) {
                 // Something else happened, completely unrelated to Stripe
-                $request->getSession()->getFlashBag()->add('success', 'Une erreur s\'est produite');
+                $request->getSession()->getFlashBag()->add('info', 'Une erreur s\'est produite');
                 return $this->render('AppBundle:Booking:payment.html.twig', array(
                     'listTickets' => $listTickets,
                     'currentBooking' => $currentBooking,
